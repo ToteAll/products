@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-deployment
+  name: products-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user
+      app: products
   template:
     metadata:
       labels:
-        app: user
+        app: products
     spec:
       containers:
-        - name: user
-          image: iamjoydevdas/user:latest  # Replace with your Docker image
+        - name: products
+          image: iamjoydevdas/products:latest  # Replace with your Docker image
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080  # Port where Spring Boot is running
+            - containerPort: 8082  # Port where Spring Boot is running
           env:
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://postgres-service:5432/retail  # Replace with PostgreSQL service name and DB
