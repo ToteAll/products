@@ -1,7 +1,7 @@
 package com.toteall.products.api;
 
 import com.toteall.products.dto.Product;
-import com.toteall.products.repo.ProductsRepository;
+import com.toteall.products.repo.ProductsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +14,10 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class ProductsController {
 
-    private final ProductsRepository productsRepository;
+    private final ProductsService productsService;
 
     @GetMapping("products")
     public List<Product> getProducts() {
-        return productsRepository.findAll();
+        return productsService.findAll();
     }
 }
